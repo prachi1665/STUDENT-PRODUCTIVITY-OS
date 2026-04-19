@@ -1,55 +1,68 @@
+let user = localStorage.getItem("user");
 
-// ---------- NOTES ----------
+if (!user) {
+    window.location.href = "index.html";
+} else {
+    document.getElementById("user").innerText = user;
+}
+
+/* LOGOUT */
+function logout() {
+    localStorage.removeItem("user");
+    window.location.href = "index.html";
+}
+
+/* NOTES SAVE */
 function saveNote() {
     let note = document.getElementById("noteInput").value;
     localStorage.setItem("note", note);
-    document.getElementById("savedNote").innerText = "Saved ✔";
+    alert("Note Saved ✔");
 }
 
-window.onload = function () {
-    document.getElementById("savedNote").innerText =
+/* LOAD NOTE */
+window.addEventListener("load", () => {
+    document.getElementById("noteInput").value =
         localStorage.getItem("note") || "";
-};
+});
 
-// ---------- TODO ----------
+/* TASK SYSTEM */
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+window.addEventListener("load", renderTasks);
+
 function addTask() {
     let task = document.getElementById("taskInput").value;
 
     if (task === "") return;
 
-    let li = document.createElement("li");
-    li.innerText = task;
-    document.getElementById("taskList").appendChild(li);
+    tasks.push(task);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
     document.getElementById("taskInput").value = "";
+
+    renderTasks();
 }
 
-// ---------- TIMER ----------
-let time = 1500;
-let timerRunning;
+function renderTasks() {
+    let list = document.getElementById("taskList");
+    list.innerHTML = "";
 
-function startTimer() {
-    timerRunning = setInterval(() => {
-        if (time <= 0) {
-            clearInterval(timerRunning);
-            alert("Time's up!");
-        } else {
-            time--;
-            updateTimer();
-        }
-    }, 1000);
+    tasks.forEach((task, index) => {
+        let li = document.createElement("li");
+        li.innerText = task;
+
+        let btn = document.createElement("button");
+        btn.innerText = "❌";
+        btn.onclick = () => deleteTask(index);
+
+        li.appendChild(btn);
+        list.appendChild(li);
+    });
 }
 
-function resetTimer() {
-    clearInterval(timerRunning);
-    time = 1500;
-    updateTimer();
-}
-
-function updateTimer() {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    document.getElementById("timer").innerText =
-        `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    renderTasks();
 }
