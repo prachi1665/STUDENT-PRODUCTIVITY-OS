@@ -1,27 +1,44 @@
-# 🧠 Student Productivity OS
+# 🧠 Student Productivity OS (Login + Task Manager)
 
-## 🚀 Overview
-A web-based productivity system designed for students to manage notes, tasks, and study time efficiently.
+A web-based Student Productivity System that helps users manage tasks, notes, and daily productivity with a secure login system and persistent storage. Built using HTML, CSS, and JavaScript and deployed using GitHub Pages.
 
-## 🔥 Features
-- 📝 Notes system (saved in browser)
-- 📅 To-do list manager
-- ⏱ Pomodoro study timer
-- 💾 Data saved using localStorage
+---
+
+## 🔐 Live Demo
+👉 https://your-username.github.io/Student-Productivity-OS/
+
+---
+
+## 🚀 Features
+
+- 🔐 Login / Logout system (using localStorage session)
+- 📝 Notes management system (save notes in browser)
+- 📅 Task manager (add / delete tasks)
+- 💾 Persistent storage using localStorage
+- 🧠 Personalized dashboard per user
 - 🌐 Fully responsive web app
+- ⚡ Fast and lightweight (no backend required)
+
+---
 
 ## 🛠 Tech Stack
-- HTML
-- CSS
-- JavaScript
 
-## 🌐 Live Demo
-Hosted using GitHub Pages
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- GitHub Pages (Deployment)
 
-## 👨‍💻 Purpose
-Built to improve student productivity and demonstrate frontend development skills.
+---
 
-## 📌 Future Improvements
-- Calendar integration
-- Login system
-- Cloud sync
+## ⚙️ How It Works
+
+1. User enters username and password on login page  
+2. System stores login session in browser (localStorage)  
+3. User is redirected to dashboard  
+4. User can add notes and tasks  
+5. All data is saved in browser storage  
+6. Data remains saved even after refresh or reopening app  
+
+---
+
+## 📁 Project Structure
