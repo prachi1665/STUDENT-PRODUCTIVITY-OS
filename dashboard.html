@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Productivity OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="topbar">
+    <h2>🧠 Welcome, <span id="user"></span></h2>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📝 Notes</h2>
+        <textarea id="noteInput"></textarea>
+        <button onclick="saveNote()">Save Note</button>
+    </div>
+
+    <div class="card">
+        <h2>📅 Tasks</h2>
+        <input id="taskInput" placeholder="New Task">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
