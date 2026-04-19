@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Productivity OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🧠 Student Productivity OS</h1>
+
+<div class="container">
+
+    <!-- NOTES -->
+    <div class="card">
+        <h2>📝 Notes</h2>
+        <textarea id="noteInput" placeholder="Write your notes..."></textarea>
+        <button onclick="saveNote()">Save Note</button>
+        <p id="savedNote"></p>
+    </div>
+
+    <!-- TODO -->
+    <div class="card">
+        <h2>📅 To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- TIMER -->
+    <div class="card">
+        <h2>⏱ Study Timer</h2>
+        <p id="timer">25:00</p>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
